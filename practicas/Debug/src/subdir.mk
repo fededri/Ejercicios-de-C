@@ -4,13 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../src/basico.c 
+../src/basico.c \
+../src/tadArchivos.c 
 
 OBJS += \
-./src/basico.o 
+./src/basico.o \
+./src/tadArchivos.o 
 
 C_DEPS += \
-./src/basico.d 
+./src/basico.d \
+./src/tadArchivos.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

@@ -14,7 +14,7 @@
 #include "basico.h"
 
 
-int main(void) {
+int main1(void) {
 
 
 

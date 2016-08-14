@@ -14,6 +14,7 @@ int getLenghtOfString(char* string);
 char* string_concat(char* first, char* second);
 void string_concat_dynamic(char*, char*, char**);
 void mail_split(char*, char**, char**);
+void printLn(char* string);
 
 
 
