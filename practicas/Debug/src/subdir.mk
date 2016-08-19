@@ -5,14 +5,17 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../src/basico.c \
+../src/commons.c \
 ../src/tadArchivos.c 
 
 OBJS += \
 ./src/basico.o \
+./src/commons.o \
 ./src/tadArchivos.o 
 
 C_DEPS += \
 ./src/basico.d \
+./src/commons.d \
 ./src/tadArchivos.d 
 
 

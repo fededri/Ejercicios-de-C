@@ -10,7 +10,7 @@
 #include "tadArchivos.h"
 #include "basico.h"
 
-int main(void) {
+int main2(void) {
 
 
 	t_file file = getFile("test.txt");
