@@ -21,7 +21,7 @@ int main(){
 	FILE* inputFile = fopen("input.txt","r");
 
 	t_list* people  =readInputFile(inputFile);
-	t_persona* yo = (t_persona*) list_get(people,0);
+
 
 
 	fclose(inputFile);
@@ -43,7 +43,6 @@ int main(){
 
 void freePerson(t_persona person){
 
-	printf("nombre: %s", person.nameAndLastname );
 	free(person.DNI);
 	free(person.age);
 	free(person.nameAndLastname);
@@ -57,8 +56,23 @@ void freePerson(t_persona person){
 void writeInputFile(t_list* people, FILE *file){
 
 
+	int count = people->elements_count;
+	int i = 0;
+
+	for(;i<count;i++){
+	t_persona* persona =	list_get(people,i);
+	fwrite(persona->region,sizeof(persona->region),1,file);
+	fwrite(";",1,1,file);
+	fwrite(persona->nameAndLastname,sizeof(persona->nameAndLastname),1,file);
+	fwrite(";",1,1,file);
+	fwrite(persona->telephone,sizeof(persona->telephone),1,file);
+	}
+
+
 
 }
+
+
 
 
 /*
@@ -69,6 +83,7 @@ t_list* readInputFile(FILE * file){
 	t_list * mList = list_create();
 
 	size_t len = 0;
+	t_nodo_persona* lista = NULL;
 
 	//obtengo  longitud tota de la linea
 
@@ -78,7 +93,8 @@ t_list* readInputFile(FILE * file){
 
 	while((getline(&line,&len,file)) != -1){
 
-		t_persona* persona = malloc(500);
+		int sizeOft_persona  = sizeof(t_persona);
+		t_persona* persona = malloc(sizeOft_persona);
 		char ** arrayStrings = string_split(line,";");
 
 		persona->region = malloc(strlen(arrayStrings[0]));
@@ -100,20 +116,12 @@ t_list* readInputFile(FILE * file){
 		persona->salary = malloc(strlen(arrayStrings[5]));
 		strcpy(persona->salary,arrayStrings[5]);
 
-
-		printf("name in funciton %s", persona->nameAndLastname);
-		list_add(mList, &persona);
-		free(arrayStrings);
+		list_add(mList,(persona));
+		free(arrayStrings[0]);
 
 	}
 
 	free(line);
-
-
-	t_persona* p = (t_persona*)list_get(mList,0);
-
-
-	printf("name %s", p->nameAndLastname);
 
 	return mList;
 
