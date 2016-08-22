@@ -34,6 +34,7 @@ typedef struct t_nodo_persona{
 t_list* readInputFile(FILE * file);
 void freePerson(t_persona* person);
 void writeInputFile(t_list* people, FILE *file);
+bool isGreaterThan18(t_persona* person);
 
 
 

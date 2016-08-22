@@ -22,22 +22,38 @@ int main(){
 
 	t_list* people  =readInputFile(inputFile);
 
+	bool (*filterFunction) (t_persona* person) = isGreaterThan18;
+	void (*cleanFunction) (t_persona* person) = freePerson;
+
+
+	t_list* listFiltered = list_filter(people,filterFunction);
+	//libero la lista inicial ya que no se usa mas
+
 
 
 	fclose(inputFile);
 
 	FILE * outputFile = fopen("output.txt","w");
+	//escribo los resultados en el archivo
+	writeInputFile(listFiltered,outputFile);
 
-	writeInputFile(people,outputFile);
-
-	void (*cleanFunction) (t_persona* person) = freePerson;
+	//libero la lista de filtrados
+	list_destroy_and_destroy_elements(listFiltered, cleanFunction);
 	list_destroy_and_destroy_elements(people, cleanFunction);
-
-
 	fclose(outputFile);
 
 
+	printf("Programa terminado");
+
+
 	return EXIT_SUCCESS;
+}
+
+bool isGreaterThan18(t_persona* person){
+	int age = atoi(person->age);
+
+	return age>18;
+
 }
 
 
