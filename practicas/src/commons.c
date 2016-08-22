@@ -14,6 +14,7 @@
 #include "tadArchivos.h"
 #include <commons/string.h>
 #include <commons/collections/list.h>
+#include <commons/log.h>
 
 int main(){
 
@@ -21,17 +22,16 @@ int main(){
 	FILE* inputFile = fopen("input.txt","r");
 
 	t_list* people  =readInputFile(inputFile);
+	fclose(inputFile);
 
 	bool (*filterFunction) (t_persona* person) = isGreaterThan18;
 	void (*cleanFunction) (t_persona* person) = freePerson;
+	bool (*sortFunction) (t_persona* person1, t_persona* person2) = comparatorRegionAndAge;
 
 
 	t_list* listFiltered = list_filter(people,filterFunction);
-	//libero la lista inicial ya que no se usa mas
+	list_sort(listFiltered,sortFunction);
 
-
-
-	fclose(inputFile);
 
 	FILE * outputFile = fopen("output.txt","w");
 	//escribo los resultados en el archivo
@@ -40,6 +40,7 @@ int main(){
 	//libero la lista de filtrados
 	list_destroy_and_destroy_elements(listFiltered, cleanFunction);
 	list_destroy_and_destroy_elements(people, cleanFunction);
+
 	fclose(outputFile);
 
 
@@ -47,6 +48,23 @@ int main(){
 
 
 	return EXIT_SUCCESS;
+}
+
+
+//bool (*comparator)(void *, void *)
+bool comparatorRegionAndAge(t_persona* person1, t_persona * person2){
+	char firstCharRegionOf1= person1->region[0];
+	char firstCharRegionOf2 = person2->region[0];
+	int age1 = atoi(person1->age);
+	int age2= atoi(person2->age);
+
+
+	if(firstCharRegionOf1 < firstCharRegionOf2 && age1 < age2){
+		return true;
+	}else{
+		return false;
+	}
+
 }
 
 bool isGreaterThan18(t_persona* person){
@@ -136,6 +154,11 @@ t_list* readInputFile(FILE * file){
 
 		persona->salary = malloc(strlen(arrayStrings[5]));
 		strcpy(persona->salary,arrayStrings[5]);
+		int salary = atoi(persona->salary);
+		if(salary <100){
+			t_log* logger = log_create("salarios_bajos","ejercicio 3",false,LOG_LEVEL_INFO);
+			log_info(logger,persona->nameAndLastname);
+		}
 
 		list_add(mList,(persona));
 		free(arrayStrings[0]);

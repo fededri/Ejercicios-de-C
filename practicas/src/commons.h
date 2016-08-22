@@ -13,6 +13,7 @@
 #include <commons/string.h>
 #include <commons/collections/list.h>
 
+
 typedef struct t_persona{
 	char* region;
 	char* nameAndLastname;
@@ -35,6 +36,7 @@ t_list* readInputFile(FILE * file);
 void freePerson(t_persona* person);
 void writeInputFile(t_list* people, FILE *file);
 bool isGreaterThan18(t_persona* person);
+bool comparatorRegionAndAge(t_persona* person1, t_persona * person2);
 
 
 
