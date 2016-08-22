@@ -30,7 +30,7 @@ int main(){
 
 	writeInputFile(people,outputFile);
 
-	void(*cleanFunction) (t_persona* person) = freePerson;
+	void (*cleanFunction) (t_persona* person) = freePerson;
 	list_destroy_and_destroy_elements(people, cleanFunction);
 
 
@@ -41,14 +41,14 @@ int main(){
 }
 
 
-void freePerson(t_persona person){
+void freePerson(t_persona * person){
 
-	free(person.DNI);
-	free(person.age);
-	free(person.nameAndLastname);
-	free(person.region);
-	free(person.salary);
-	free(person.telephone);
+	free(person->DNI);
+	free(person->age);
+	free(person->nameAndLastname);
+	free(person->region);
+	free(person->salary);
+	free(person->telephone);
 
 }
 
@@ -61,11 +61,11 @@ void writeInputFile(t_list* people, FILE *file){
 
 	for(;i<count;i++){
 	t_persona* persona =	list_get(people,i);
-	fwrite(persona->region,sizeof(persona->region),1,file);
+	fwrite(persona->region,strlen(persona->region),1,file);
 	fwrite(";",1,1,file);
-	fwrite(persona->nameAndLastname,sizeof(persona->nameAndLastname),1,file);
+	fwrite(persona->nameAndLastname,strlen(persona->nameAndLastname),1,file);
 	fwrite(";",1,1,file);
-	fwrite(persona->telephone,sizeof(persona->telephone),1,file);
+	fwrite(persona->telephone,strlen(persona->telephone),1,file);
 	}
 
 
@@ -100,8 +100,13 @@ t_list* readInputFile(FILE * file){
 		persona->region = malloc(strlen(arrayStrings[0]));
 		strcpy(persona->region, arrayStrings[0]);
 
-		persona->nameAndLastname = malloc(strlen(arrayStrings[1]));
-		strcpy(persona->nameAndLastname,arrayStrings[1]);
+		char * name = malloc(sizeof(arrayStrings[1]));
+		strcpy(name,arrayStrings[1]);
+		string_trim(&name);
+		persona->nameAndLastname = malloc(sizeof(name));
+		strcpy(persona->nameAndLastname,name);
+		free(name);
+
 
 		persona->age = malloc (strlen(arrayStrings[2]));
 		strcpy(persona->age,arrayStrings[2]);
