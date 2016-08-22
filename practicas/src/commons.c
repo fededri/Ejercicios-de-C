@@ -16,7 +16,7 @@
 #include <commons/collections/list.h>
 #include <commons/log.h>
 
-int main(){
+int main3(){
 
 
 	FILE* inputFile = fopen("input.txt","r");

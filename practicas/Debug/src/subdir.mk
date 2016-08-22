@@ -6,16 +6,19 @@
 C_SRCS += \
 ../src/basico.c \
 ../src/commons.c \
+../src/solucionLeo.c \
 ../src/tadArchivos.c 
 
 OBJS += \
 ./src/basico.o \
 ./src/commons.o \
+./src/solucionLeo.o \
 ./src/tadArchivos.o 
 
 C_DEPS += \
 ./src/basico.d \
 ./src/commons.d \
+./src/solucionLeo.d \
 ./src/tadArchivos.d 
 
 
