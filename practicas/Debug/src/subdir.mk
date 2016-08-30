@@ -6,18 +6,24 @@
 C_SRCS += \
 ../src/basico.c \
 ../src/commons.c \
+../src/leaks.c \
+../src/miNivel.c \
 ../src/solucionLeo.c \
 ../src/tadArchivos.c 
 
 OBJS += \
 ./src/basico.o \
 ./src/commons.o \
+./src/leaks.o \
+./src/miNivel.o \
 ./src/solucionLeo.o \
 ./src/tadArchivos.o 
 
 C_DEPS += \
 ./src/basico.d \
 ./src/commons.d \
+./src/leaks.d \
+./src/miNivel.d \
 ./src/solucionLeo.d \
 ./src/tadArchivos.d 
 

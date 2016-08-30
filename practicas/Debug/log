@@ -1,0 +1,43 @@
+==18123== Memcheck, a memory error detector
+==18123== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==18123== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==18123== Command: ./practicas
+==18123== Parent PID: 17501
+==18123== 
+==18123== Invalid read of size 4
+==18123==    at 0x40BCBC5: fseek (fseek.c:38)
+==18123==    by 0x8049179: readInputFile (commons.c:124)
+==18123==    by 0x8048E90: main (commons.c:24)
+==18123==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==18123== 
+==18123== 
+==18123== Process terminating with default action of signal 11 (SIGSEGV)
+==18123==  Access not within mapped region at address 0x0
+==18123==    at 0x40BCBC5: fseek (fseek.c:38)
+==18123==    by 0x8049179: readInputFile (commons.c:124)
+==18123==    by 0x8048E90: main (commons.c:24)
+==18123==  If you believe this happened as a result of a stack
+==18123==  overflow in your program's main thread (unlikely but
+==18123==  possible), you can try to increase the size of the
+==18123==  main thread stack using the --main-stacksize= flag.
+==18123==  The main thread stack size used in this run was 8388608.
+==18123== 
+==18123== HEAP SUMMARY:
+==18123==     in use at exit: 8 bytes in 1 blocks
+==18123==   total heap usage: 2 allocs, 1 frees, 360 bytes allocated
+==18123== 
+==18123== 8 bytes in 1 blocks are still reachable in loss record 1 of 1
+==18123==    at 0x402A17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==18123==    by 0x404D498: list_create (in /usr/lib/libcommons.so)
+==18123==    by 0x804914D: readInputFile (commons.c:117)
+==18123==    by 0x8048E90: main (commons.c:24)
+==18123== 
+==18123== LEAK SUMMARY:
+==18123==    definitely lost: 0 bytes in 0 blocks
+==18123==    indirectly lost: 0 bytes in 0 blocks
+==18123==      possibly lost: 0 bytes in 0 blocks
+==18123==    still reachable: 8 bytes in 1 blocks
+==18123==         suppressed: 0 bytes in 0 blocks
+==18123== 
+==18123== For counts of detected and suppressed errors, rerun with: -v
+==18123== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)

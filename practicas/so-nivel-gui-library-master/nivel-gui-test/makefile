@@ -1,7 +1,7 @@
 # Completar con sus paths
 COMMONS_DIR_HEADERS=/home/utnso/so-commons-library/src
 COMMONS_DIR_BIN=/home/utnso/so-commons-library/Debug
-COMMONS_NAME=so-commons-library
+COMMONS_NAME=commons
 
 all: compile
 	
