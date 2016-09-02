@@ -12,7 +12,7 @@
 #include <curses.h>
 #include <tad_items.h>
 
-int main(){
+int mai6(){
 
 	t_list* items = list_create();
 	int rows, cols;
