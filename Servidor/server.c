@@ -7,9 +7,14 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <netdb.h>
+#include <commons/string.h>
+
 
 #define PORT "3000"   // port we're listening on
 #define STDIN 0
+
+char* readLineFromSTDIN();
+void commandsHandler(char* line, fd_set* fdSet);
 
 // get sockaddr, IPv4 or IPv6:
 void *get_in_addr(struct sockaddr *sa)
@@ -90,7 +95,7 @@ int main(void)
 
     // add the listener to the master set
     FD_SET(listener, &master);
-    FD_SET(stdin,&master);
+    FD_SET(STDIN,&master);
 
     // keep track of the biggest file descriptor
     fdmax = listener; // so far, it's this one
@@ -108,26 +113,12 @@ int main(void)
             if (FD_ISSET(i, &read_fds)) { // we got one!!
 
             	if(i == STDIN){ //se escribe en la consola del server
-            		if ((nbytes = recv(i,buf,sizeof buf,0)) <= 0){
+            		char * line = readLineFromSTDIN();
 
-            			if(nbytes == 0){
-            				printf("el socket %d se desconecto", i);
+            		if ( strlen(line) > 0){
 
-            			FD_CLR(i,&master);
-            			}else{
-            				perror("consola recv:");
-            				            			exit(1);
-            			}
-
-            			close(i); // lo cierro porque se desconecto o se produjo un error
-            		}else {
-            			char * data = malloc(sizeof(buf) + 1);
-            			data[nbytes]= '\0';
-            			memcpy(data,buf,nbytes+1);
-
-            			printf(data);
+            			commandsHandler(line, &master);
             		}
-
 
             	}else if (i == listener) {
                     // handle new connections
@@ -168,7 +159,7 @@ int main(void)
                             // send to everyone!
                             if (FD_ISSET(j, &master)) {
                                 // except the listener and ourselves
-                                if (j != listener && j != i) {
+                                if (j != listener && j != i && i != STDIN) {
                                     if (send(j, buf, nbytes, 0) == -1) {
                                         perror("send");
                                     }
@@ -182,4 +173,46 @@ int main(void)
     } // END for(;;)--and you thought it would never end!
 
     return 0;
+}
+
+
+void commandsHandler(char* line, fd_set* fdSet){
+
+	char **array = string_split(line," ");
+
+	if(string_equals_ignore_case(array[0],"disconnect")){
+		int closeResult;
+
+		closeResult = 	close(atoi(array[1]));
+		if(closeResult == -1){
+			perror("no se pudo desconectar el cliente:");
+
+		}else {
+			FD_CLR(atoi(array[1]),fdSet);
+			printf("Se desconecto al cliente numero %s \n", array[1]);
+		}
+
+	}else {
+		printf("Comando no detectado \n");
+	}
+
+
+}
+
+
+char* readLineFromSTDIN(){
+
+	char c = fgetc(stdin);
+	size_t size = 0;
+	char * line = malloc(0);
+
+	while(c !=  '\n' && c != EOF){
+		realloc(line,size +1);
+		line[size] = c;
+		size ++;
+		c= fgetc(stdin);
+	}
+	line[size] = '\0';
+	return line;
+
 }
