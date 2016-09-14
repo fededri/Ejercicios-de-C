@@ -6,6 +6,8 @@
  */
 
 #include "solucionLeo.h"
+
+
 #define SALDO 500
 int saldo_inicial = SALDO;
 
@@ -14,7 +16,7 @@ int saldo_inicial = SALDO;
 pthread_mutex_t mutex;
 
 
-int main(void) {
+int main5(void) {
 
 
 	/* Se inicializa el mutex */
@@ -26,6 +28,9 @@ int main(void) {
 	pthread_create(&h2, NULL, compras_mensuales, "Leo");
 	pthread_join(h1, (void **) NULL); //El hilo principal (main) se bloquea hasta que el hilo h1 finalice
 	pthread_join(h2, (void **) NULL);
+
+
+
 
 	return EXIT_SUCCESS;
 }
