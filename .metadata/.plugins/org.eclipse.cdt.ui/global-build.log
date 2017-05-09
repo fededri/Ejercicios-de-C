@@ -1,0 +1,375 @@
+21:14:15 **** Clean-only build of configuration Debug for project sincronizacion ****
+make clean 
+rm -rf  ./src/ej1.o ./src/ej4.o ./src/ej5.o ./src/sincronizacion.o  ./src/ej1.d ./src/ej4.d ./src/ej5.d ./src/sincronizacion.d  sincronizacion
+ 
+21:14:15 **** Build of configuration Debug for project sincronizacion ****
+make all 
+Building file: ../src/ej1.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ej1.d" -MT"src/ej1.d" -o "src/ej1.o" "../src/ej1.c"
+../src/ej1.c: In function ‘hilo2Funcion’:
+../src/ej1.c:67:4: warning: implicit declaration of function ‘sleep’ [-Wimplicit-function-declaration]
+    sleep(1);
+    ^
+../src/ej4.c: In function ‘ejercicio4’:
+../src/ej4.c:22:11: warning: variable ‘rcB’ set but not used [-Wunused-but-set-variable]
+Finished building: ../src/ej1.c
+  int rcA, rcB; //resultado de creacion de hilos
+ 
+Building file: ../src/ej4.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ej4.d" -MT"src/ej4.d" -o "src/ej4.o" "../src/ej4.c"
+Finished building: ../src/ej4.c
+ 
+Building file: ../src/ej5.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ej5.d" -MT"src/ej5.d" -o "src/ej5.o" "../src/ej5.c"
+Finished building: ../src/ej5.c
+ 
+Building file: ../src/ej6.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ej6.d" -MT"src/ej6.d" -o "src/ej6.o" "../src/ej6.c"
+Finished building: ../src/ej6.c
+ 
+Building file: ../src/sincronizacion.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/sincronizacion.d" -MT"src/sincronizacion.d" -o "src/sincronizacion.o" "../src/sincronizacion.c"
+Finished building: ../src/sincronizacion.c
+ 
+Building target: sincronizacion
+Invoking: GCC C Linker
+gcc  -o "sincronizacion"  ./src/ej1.o ./src/ej4.o ./src/ej5.o ./src/ej6.o ./src/sincronizacion.o   -lpthread
+           ^
+../src/ej4.c:22:6: warning: variable ‘rcA’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB; //resultado de creacion de hilos
+      ^
+../src/ej5.c: In function ‘ejercicio5’:
+../src/ej5.c:25:16: warning: variable ‘rcC’ set but not used [-Wunused-but-set-variable]
+   int rcA, rcB,rcC; //resultado de creacion de hilos
+                ^
+../src/ej5.c:25:12: warning: variable ‘rcB’ set but not used [-Wunused-but-set-variable]
+   int rcA, rcB,rcC; //resultado de creacion de hilos
+            ^
+../src/ej5.c:25:7: warning: variable ‘rcA’ set but not used [-Wunused-but-set-variable]
+   int rcA, rcB,rcC; //resultado de creacion de hilos
+       ^
+../src/sincronizacion.c: In function ‘main’:
+../src/sincronizacion.c:21:2: warning: implicit declaration of function ‘ejercicio5’ [-Wimplicit-function-declaration]
+  ejercicio5();
+  ^
+Finished building target: sincronizacion
+ 
+21:16:24 **** Incremental Build of configuration Debug for project sincronizacion ****
+make all 
+Building file: ../src/BACABACA.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/BACABACA.d" -MT"src/BACABACA.d" -o "src/BACABACA.o" "../src/BACABACA.c"
+../src/BACABACA.c:9:1: error: unknown type name ‘sem_t’
+ sem_t semA;
+ ^
+../src/BACABACA.c:10:1: error: unknown type name ‘sem_t’
+ sem_t semB;
+ ^
+../src/BACABACA.c:11:1: error: unknown type name ‘sem_t’
+ sem_t semC;
+ ^
+../src/BACABACA.c:12:1: error: unknown type name ‘sem_t’
+ sem_t semD;
+ ^
+../src/BACABACA.c: In function ‘BACABACA’:
+../src/BACABACA.c:15:1: warning: implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]
+ printf("asd");
+ ^
+../src/BACABACA.c:15:1: warning: incompatible implicit declaration of built-in function ‘printf’ [enabled by default]
+make: *** [src/BACABACA.o] Error 1
+21:16:56 **** Incremental Build of configuration Debug for project sincronizacion ****
+make all 
+Building file: ../src/BACABACA.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/BACABACA.d" -MT"src/BACABACA.d" -o "src/BACABACA.o" "../src/BACABACA.c"
+Finished building: ../src/BACABACA.c
+ 
+Building file: ../src/sincronizacion.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/sincronizacion.d" -MT"src/sincronizacion.d" -o "src/sincronizacion.o" "../src/sincronizacion.c"
+../src/sincronizacion.c: In function ‘main’:
+../src/sincronizacion.c:21:2: warning: implicit declaration of function ‘ejercicio5’ [-Wimplicit-function-declaration]
+  ejercicio5();
+  ^
+Finished building: ../src/sincronizacion.c
+ 
+Building target: sincronizacion
+Invoking: GCC C Linker
+gcc  -o "sincronizacion"  ./src/BACABACA.o ./src/ej1.o ./src/ej4.o ./src/ej5.o ./src/ej6.o ./src/sincronizacion.o   -lpthread
+Finished building target: sincronizacion
+ 
+21:23:50 **** Incremental Build of configuration Debug for project sincronizacion ****
+make all 
+Building file: ../src/BACABACA.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/BACABACA.d" -MT"src/BACABACA.d" -o "src/BACABACA.o" "../src/BACABACA.c"
+../src/BACABACA.c: In function ‘BACABACA’:
+../src/BACABACA.c:25:34: error: ‘BACA_funcA’ undeclared (first use in this function)
+  rcA= pthread_create(&hiloA,NULL,BACA_funcA,NULL);
+                                  ^
+../src/BACABACA.c:25:34: note: each undeclared identifier is reported only once for each function it appears in
+../src/BACABACA.c:26:34: error: ‘BACA_funcB’ undeclared (first use in this function)
+  rcB= pthread_create(&hiloB,NULL,BACA_funcB,NULL);
+                                  ^
+../src/BACABACA.c:27:35: error: ‘BACA_funcC’ undeclared (first use in this function)
+  rcC = pthread_create(&hiloC,NULL,BACA_funcC,NULL);
+                                   ^
+../src/BACABACA.c:18:19: warning: unused variable ‘rcD’ [-Wunused-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+                   ^
+../src/BACABACA.c:18:15: warning: variable ‘rcC’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+               ^
+../src/BACABACA.c:18:11: warning: variable ‘rcB’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+           ^
+../src/BACABACA.c:18:6: warning: variable ‘rcA’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+      ^
+../src/BACABACA.c:17:31: warning: unused variable ‘hiloD’ [-Wunused-variable]
+  pthread_t  hiloA,hiloB,hiloC,hiloD;
+                               ^
+../src/BACABACA.c: In function ‘BACA_funcC’:
+../src/BACABACA.c:68:5: error: expected ‘;’ before ‘printf’
+     printf("C");
+     ^
+make: *** [src/BACABACA.o] Error 1
+21:24:01 **** Incremental Build of configuration Debug for project sincronizacion ****
+make all 
+Building file: ../src/BACABACA.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/BACABACA.d" -MT"src/BACABACA.d" -o "src/BACABACA.o" "../src/BACABACA.c"
+../src/BACABACA.c: In function ‘BACABACA’:
+../src/BACABACA.c:25:34: error: ‘BACA_funcA’ undeclared (first use in this function)
+  rcA= pthread_create(&hiloA,NULL,BACA_funcA,NULL);
+                                  ^
+../src/BACABACA.c:25:34: note: each undeclared identifier is reported only once for each function it appears in
+../src/BACABACA.c:26:34: error: ‘BACA_funcB’ undeclared (first use in this function)
+  rcB= pthread_create(&hiloB,NULL,BACA_funcB,NULL);
+                                  ^
+../src/BACABACA.c:27:35: error: ‘BACA_funcC’ undeclared (first use in this function)
+  rcC = pthread_create(&hiloC,NULL,BACA_funcC,NULL);
+                                   ^
+../src/BACABACA.c:18:19: warning: unused variable ‘rcD’ [-Wunused-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+                   ^
+../src/BACABACA.c:18:15: warning: variable ‘rcC’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+               ^
+../src/BACABACA.c:18:11: warning: variable ‘rcB’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+           ^
+../src/BACABACA.c:18:6: warning: variable ‘rcA’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+      ^
+../src/BACABACA.c:17:31: warning: unused variable ‘hiloD’ [-Wunused-variable]
+  pthread_t  hiloA,hiloB,hiloC,hiloD;
+                               ^
+make: *** [src/BACABACA.o] Error 1
+21:24:27 **** Incremental Build of configuration Debug for project sincronizacion ****
+make all 
+Building file: ../src/BACABACA.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/BACABACA.d" -MT"src/BACABACA.d" -o "src/BACABACA.o" "../src/BACABACA.c"
+../src/BACABACA.c: In function ‘BACABACA’:
+../src/BACABACA.c:22:19: warning: unused variable ‘rcD’ [-Wunused-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+                   ^
+../src/BACABACA.c:22:15: warning: variable ‘rcC’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+               ^
+../src/BACABACA.c:22:11: warning: variable ‘rcB’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+           ^
+../src/BACABACA.c:22:6: warning: variable ‘rcA’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+      ^
+../src/BACABACA.c:21:31: warning: unused variable ‘hiloD’ [-Wunused-variable]
+  pthread_t  hiloA,hiloB,hiloC,hiloD;
+                               ^
+Finished building: ../src/BACABACA.c
+ 
+Building file: ../src/sincronizacion.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/sincronizacion.d" -MT"src/sincronizacion.d" -o "src/sincronizacion.o" "../src/sincronizacion.c"
+../src/sincronizacion.c: In function ‘main’:
+../src/sincronizacion.c:22:2: warning: implicit declaration of function ‘BACABACA’ [-Wimplicit-function-declaration]
+  BACABACA();
+  ^
+Finished building: ../src/sincronizacion.c
+ 
+Building target: sincronizacion
+Invoking: GCC C Linker
+gcc  -o "sincronizacion"  ./src/BACABACA.o ./src/ej1.o ./src/ej4.o ./src/ej5.o ./src/ej6.o ./src/sincronizacion.o   -lpthread
+Finished building target: sincronizacion
+ 
+21:24:51 **** Incremental Build of configuration Debug for project sincronizacion ****
+make all 
+Building file: ../src/BACABACA.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/BACABACA.d" -MT"src/BACABACA.d" -o "src/BACABACA.o" "../src/BACABACA.c"
+../src/BACABACA.c: In function ‘BACABACA’:
+../src/BACABACA.c:22:19: warning: unused variable ‘rcD’ [-Wunused-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+                   ^
+../src/BACABACA.c:22:15: warning: variable ‘rcC’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+               ^
+../src/BACABACA.c:22:11: warning: variable ‘rcB’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+           ^
+../src/BACABACA.c:22:6: warning: variable ‘rcA’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+      ^
+../src/BACABACA.c:21:31: warning: unused variable ‘hiloD’ [-Wunused-variable]
+  pthread_t  hiloA,hiloB,hiloC,hiloD;
+                               ^
+Finished building: ../src/BACABACA.c
+ 
+Building target: sincronizacion
+Invoking: GCC C Linker
+gcc  -o "sincronizacion"  ./src/BACABACA.o ./src/ej1.o ./src/ej4.o ./src/ej5.o ./src/ej6.o ./src/sincronizacion.o   -lpthread
+Finished building target: sincronizacion
+ 
+21:27:42 **** Incremental Build of configuration Debug for project sincronizacion ****
+make all 
+Building file: ../src/BACABACA.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/BACABACA.d" -MT"src/BACABACA.d" -o "src/BACABACA.o" "../src/BACABACA.c"
+../src/BACABACA.c: In function ‘BACABACA’:
+../src/BACABACA.c:22:19: warning: unused variable ‘rcD’ [-Wunused-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+                   ^
+../src/BACABACA.c:22:15: warning: variable ‘rcC’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+               ^
+../src/BACABACA.c:22:11: warning: variable ‘rcB’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+           ^
+../src/BACABACA.c:22:6: warning: variable ‘rcA’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+      ^
+Finished building: ../src/BACABACA.c
+ 
+Building target: sincronizacion
+Invoking: GCC C Linker
+gcc  -o "sincronizacion"  ./src/BACABACA.o ./src/ej1.o ./src/ej4.o ./src/ej5.o ./src/ej6.o ./src/sincronizacion.o   -lpthread
+Finished building target: sincronizacion
+ 
+21:28:03 **** Incremental Build of configuration Debug for project sincronizacion ****
+make all 
+Building file: ../src/BACABACA.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/BACABACA.d" -MT"src/BACABACA.d" -o "src/BACABACA.o" "../src/BACABACA.c"
+../src/BACABACA.c: In function ‘BACABACA’:
+../src/BACABACA.c:22:19: warning: unused variable ‘rcD’ [-Wunused-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+                   ^
+../src/BACABACA.c:22:15: warning: variable ‘rcC’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+               ^
+../src/BACABACA.c:22:11: warning: variable ‘rcB’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+           ^
+../src/BACABACA.c:22:6: warning: variable ‘rcA’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+      ^
+Finished building: ../src/BACABACA.c
+ 
+Building target: sincronizacion
+Invoking: GCC C Linker
+gcc  -o "sincronizacion"  ./src/BACABACA.o ./src/ej1.o ./src/ej4.o ./src/ej5.o ./src/ej6.o ./src/sincronizacion.o   -lpthread
+Finished building target: sincronizacion
+ 
+21:31:37 **** Incremental Build of configuration Debug for project sincronizacion ****
+make all 
+Building file: ../src/BACABACA.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/BACABACA.d" -MT"src/BACABACA.d" -o "src/BACABACA.o" "../src/BACABACA.c"
+../src/BACABACA.c: In function ‘BACABACA’:
+../src/BACABACA.c:22:19: warning: unused variable ‘rcD’ [-Wunused-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+                   ^
+../src/BACABACA.c:22:15: warning: variable ‘rcC’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+               ^
+../src/BACABACA.c:22:11: warning: variable ‘rcB’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+           ^
+../src/BACABACA.c:22:6: warning: variable ‘rcA’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+      ^
+Finished building: ../src/BACABACA.c
+ 
+Building target: sincronizacion
+Invoking: GCC C Linker
+gcc  -o "sincronizacion"  ./src/BACABACA.o ./src/ej1.o ./src/ej4.o ./src/ej5.o ./src/ej6.o ./src/sincronizacion.o   -lpthread
+Finished building target: sincronizacion
+ 
+21:32:05 **** Incremental Build of configuration Debug for project sincronizacion ****
+make all 
+Building file: ../src/BACABACA.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/BACABACA.d" -MT"src/BACABACA.d" -o "src/BACABACA.o" "../src/BACABACA.c"
+../src/BACABACA.c: In function ‘BACABACA’:
+../src/BACABACA.c:22:19: warning: unused variable ‘rcD’ [-Wunused-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+                   ^
+../src/BACABACA.c:22:15: warning: variable ‘rcC’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+               ^
+../src/BACABACA.c:22:11: warning: variable ‘rcB’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+           ^
+../src/BACABACA.c:22:6: warning: variable ‘rcA’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+      ^
+Finished building: ../src/BACABACA.c
+ 
+Building target: sincronizacion
+Invoking: GCC C Linker
+gcc  -o "sincronizacion"  ./src/BACABACA.o ./src/ej1.o ./src/ej4.o ./src/ej5.o ./src/ej6.o ./src/sincronizacion.o   -lpthread
+Finished building target: sincronizacion
+ 
+21:37:06 **** Incremental Build of configuration Debug for project sincronizacion ****
+make all 
+Building file: ../src/BACABACA.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/BACABACA.d" -MT"src/BACABACA.d" -o "src/BACABACA.o" "../src/BACABACA.c"
+../src/BACABACA.c: In function ‘BACABACA’:
+../src/BACABACA.c:22:19: warning: unused variable ‘rcD’ [-Wunused-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+                   ^
+../src/BACABACA.c:22:15: warning: variable ‘rcC’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+               ^
+../src/BACABACA.c:22:11: warning: variable ‘rcB’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+           ^
+../src/BACABACA.c:22:6: warning: variable ‘rcA’ set but not used [-Wunused-but-set-variable]
+  int rcA, rcB,rcC,rcD; //resultado de creacion de hilos
+      ^
+Finished building: ../src/BACABACA.c
+ 
+Building target: sincronizacion
+Invoking: GCC C Linker
+gcc  -o "sincronizacion"  ./src/BACABACA.o ./src/ej1.o ./src/ej4.o ./src/ej5.o ./src/ej6.o ./src/sincronizacion.o   -lpthread
+Finished building target: sincronizacion
+ 
+21:37:55 **** Incremental Build of configuration Debug for project sincronizacion ****
+make all 
+make: No se hace nada para «all».
+21:37:59 **** Incremental Build of configuration Debug for project sincronizacion ****
+make all 
+make: No se hace nada para «all».
+21:38:01 **** Incremental Build of configuration Debug for project sincronizacion ****
+make all 
+make: No se hace nada para «all».
+21:38:02 **** Incremental Build of configuration Debug for project sincronizacion ****
+make all 
+make: No se hace nada para «all».

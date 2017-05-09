@@ -18,7 +18,7 @@ int main(void) {
 
 	//ejercicio1();
 	//ejercicio4();
-	//ejercicio5();
-	BACABACA();
+	ejercicio5();
+	//BACABACA();
 	return EXIT_SUCCESS;
 }
